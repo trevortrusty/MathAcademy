@@ -4,7 +4,7 @@ import discord
 import os
 from discord.ext import commands, tasks
 from paths import file, cogs_path
-from token import the_token
+from thetoken import the_token
 
 client = commands.Bot(command_prefix = '\\')
 
