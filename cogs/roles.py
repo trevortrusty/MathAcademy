@@ -94,7 +94,11 @@ class Roles(commands.Cog):
             await myMember.remove_roles(currentRole)
             if myMember.dm_channel is None:
                 await myMember.create_dm()
-            await myMember.dm_channel.send(f'Removed {roleName}')
+            myEmbed = discord.Embed(
+                title = f'Removed {roleName} from your roles!',
+                color = discord.Color.purple()
+            )
+            await payload.member.dm_channel.send(embed=myEmbed)
 
         if payload.message_id == 725555221194997790:
             if payload.emoji.name == '1️⃣':
