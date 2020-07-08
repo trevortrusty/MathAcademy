@@ -98,7 +98,7 @@ class Roles(commands.Cog):
                 title = f'Removed {roleName} from your roles!',
                 color = discord.Color.purple()
             )
-            await payload.member.dm_channel.send(embed=myEmbed)
+            await myMember.dm_channel.send(embed=myEmbed)
 
         if payload.message_id == 725555221194997790:
             if payload.emoji.name == '1️⃣':
