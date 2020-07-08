@@ -1,0 +1,58 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>7d36b455-0654-47cd-867d-cd5cf050e9d3</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>Main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>MathAcademy</Name>
+    <RootNamespace>ElonBot</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="cogs\events.py" />
+    <Compile Include="cogs\fun.py" />
+    <Compile Include="cogs\help.py" />
+    <Compile Include="cogs\help_test.py.old" />
+    <Compile Include="cogs\roles.py" />
+    <Compile Include="Main.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cogs\cog - template.txt" />
+    <Content Include="cogs\oldroles.txt" />
+    <Content Include="cogs\__pycache__\events.cpython-37.pyc" />
+    <Content Include="cogs\__pycache__\events.cpython-38.pyc" />
+    <Content Include="cogs\__pycache__\fun.cpython-37.pyc" />
+    <Content Include="cogs\__pycache__\fun.cpython-38.pyc" />
+    <Content Include="cogs\__pycache__\roles.cpython-37.pyc" />
+    <Content Include="cogs\__pycache__\roles.cpython-38.pyc" />
+    <Content Include="cogs\__pycache__\test.cpython-37.pyc" />
+    <Content Include="teslas.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="cogs\" />
+    <Folder Include="cogs\__pycache__\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

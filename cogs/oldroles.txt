@@ -1,0 +1,44 @@
+import discord
+from discord.ext import commands, tasks
+
+class Test(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+        MathRoles = [
+        'Algebra',
+        'Geometry',
+        'Trigonometry',
+        'Pre-calculus',
+        'Calculus 1',
+        'Calculus 2',
+        'Calculus 3',
+        'Linear Algebra',
+        'Differential Equations',
+        'Statistics',
+        'Discrete Math',
+        'Nerd'
+        ]
+
+    @commands.command()
+    async def roles(self, ctx, rolename = 'None', roles = MathRoles):
+        #for roles in (ctx.message.guild.roles): 
+            #await ctx.send(f'{roles.name}')
+        if rolename == 'None':
+            x = '>>> '
+            for i in roles:
+                #await ctx.send(f'> {i}')
+                x = x + i + '\n'
+            await ctx.send(f'{x}')
+        #elif action == 'add':
+        else:
+            if rolename in roles:
+                role = discord.utils.get(ctx.message.guild.roles, name = rolename)
+                await ctx.message.author.add_roles(role)
+                await ctx.send(f'```You have been given the role: {role.name}!```')
+            else:
+                await ctx.send("This role either does not exist or is not self assignable :(")
+    
+def setup(client):
+    client.add_cog(Test(client))

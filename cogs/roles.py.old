@@ -1,0 +1,62 @@
+import discord
+from discord.ext import commands, tasks
+
+class Roles(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    MathRoles = {
+        1 : 'Algebra',
+        2 : 'Geometry',
+        3 : 'Trigonometry',
+        4 : 'Pre-calculus',
+        5 : 'Calculus 1',
+        6 : 'Calculus 2',
+        7 : 'Calculus 3',
+        8 : 'Linear Algebra',
+        9 : 'Differential Equations',
+        10 : 'Statistics',
+        11 : 'Discrete Math',
+        12 : 'Physics',
+        13: 'Mathematics',
+        14: 'Engineering',
+        15 : 'Nerd',
+        16 : 'Computer Science',
+        17 : 'Student'
+        
+    }
+
+    @commands.command()
+    async def roles(self, ctx, roleChoice = 'None', mathRoles = MathRoles):
+        #for roles in (ctx.message.guild.roles): 
+            #await ctx.send(f'{roles.name}')
+        if roleChoice == 'None':
+            num = 1
+            x = '```Academic Roles:\n\n'
+            
+            for i in mathRoles.values():
+                #await ctx.send(f'> {i}')
+                #x = x + i + '\n ' + str(num) + ': '
+                x = f'{x}{num}: {i} \n'
+                num += 1
+            x = x + ' \nSay: "\\roles ##"```'
+            await ctx.send(f'{x}')
+        #elif action == 'add':
+        else:
+            if int(roleChoice) in mathRoles:
+                role = discord.utils.get(ctx.message.guild.roles, name = mathRoles.get(int(roleChoice)))
+                ## add the remove role handler
+                if role in ctx.message.author.roles:
+                    await ctx.message.author.remove_roles(role)
+                    await ctx.send(f'```Done! Role has been removed :)```')
+                else:
+                    await ctx.message.author.add_roles(role)
+                    await ctx.send(f'```You have been given the role: {role.name}!```')
+
+            else:
+                await ctx.send(f'{roleChoice} does not correspond to any math role :(')
+
+
+def setup(client):
+    client.add_cog(Roles(client))
