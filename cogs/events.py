@@ -47,8 +47,8 @@ class Events(commands.Cog):
             description = f'Head over to {rolesChannel.mention} to get academic roles. Also, don\'t forget to read {rulesChannel.mention}!\nHow to get help: Go to a Roman Numeral marked help channel, and post your exact question.',
             color = discord.Color.blue()
             )
-        welcome.set_footer(text = 'We\'re glad you\'re here. Type \\roles for a list of commands', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/209/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png')
-        welcome.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/610176122214416388/659261013471789066/g3873.png')
+        welcome.set_footer(text = 'We\'re glad you\'re here. Type \\help for a list of commands', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/209/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png')
+        welcome.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/698664722425184267/730509443183411312/tHeart.gif')
         await systemChannel.send(embed = welcome)
 
 
