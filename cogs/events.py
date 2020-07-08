@@ -43,9 +43,10 @@ class Events(commands.Cog):
         #    color = discord.Color.blue()
         #    )
         welcome = discord.Embed(
-            title = f'Welcome to MathAcademy, {member.name}!',
-            description = f'Head over to {rolesChannel.mention} to get academic roles. Also, don\'t forget to read {rulesChannel.mention}!\nHow to get help: Go to a Roman Numeral marked help channel, and post your exact question.',
+            title = f'Welcome to Math Academy 2.0, {member.name}!',
+            description = f'Head over to {rolesChannel.mention} to get academic roles. Also, don\'t forget to read {rulesChannel.mention}!\n\n`How to get help:` Go to a Roman Numeral marked help channel, and **post your exact question.**',
             color = discord.Color.blue()
+            #color = 0x03fc8c
             )
         welcome.set_footer(text = 'We\'re glad you\'re here. Type \\help for a list of commands', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/209/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png')
         welcome.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/698664722425184267/730509443183411312/tHeart.gif')
