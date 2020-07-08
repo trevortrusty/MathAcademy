@@ -4,8 +4,6 @@ import random
 import asyncio
 from discord.utils import get
 from discord.ext import commands, tasks
-from datetime import datetime, timedelta
-#from automessage import automessage
 
 class Roles(commands.Cog):
 
@@ -37,18 +35,18 @@ class Roles(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
-        #print(f'{user} has added a reaction')    
-        #m = self.client.fetch_message(608054063346745376)
-        #m  = discord.abc.Messageable.fetch_message(608054063346745376)
-        #m = await self.client.get_message(self.client.get_channel(608045584921919489), 608054063346745376)
-        #member = discord.utils.find(lambda m : m.id == payload.user_id, guild.members)
 
         async def addRole(roleName):
             currentRole = discord.utils.get(payload.member.guild.roles, name = roleName)
             await payload.member.add_roles(currentRole)
             if payload.member.dm_channel is None:
                 await payload.member.create_dm()
-            await payload.member.dm_channel.send(f'Added {roleName}')
+
+            myEmbed = discord.Embed(
+                title = f'Added {roleName} to your roles!',
+                color = discord.Color.purple()
+            )
+            await payload.member.dm_channel.send(embed=myEmbed)
 
         if payload.message_id == 725555221194997790:
             if payload.emoji.name == '1️⃣':
@@ -133,40 +131,6 @@ class Roles(commands.Cog):
                 await removeRole("Computer Science")
             elif payload.emoji.name == '👨‍🎓':
                 await removeRole("Student")
-
-        
-    #@commands.Cog.listener()
-    #async def on_raw_reaction_add(self, payload):
-    #    # Computer Science guild CS role reactions
-    #    if payload.message_id == 640010728597880850:
-    #        print(payload.emoji.name)
-    #        # Find a role corresponding to the Emoji name.
-    #        guild_id = payload.guild_id
-    #        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
-
-    #        role = discord.utils.find(lambda r : r.name == payload.emoji.name, guild.roles)
-
-    #        if role is not None:
-    #            print(role.name + " was found!")
-    #            print(role.id)
-    #            member = discord.utils.find(lambda m : m.id == payload.user_id, guild.members)
-    #            await member.add_roles(role)
-    #            print("done")
-    #    # Math server COLOR role reactions
-    #    elif payload.message_id == 660302314707484682:
-    #        print(payload.emoji.name)
-    #        # Find a role corresponding to the Emoji name.
-    #        guild_id = payload.guild_id
-    #        guild = discord.utils.find(lambda g : g.id == guild_id, self.client.guilds)
-
-    #        role = discord.utils.find(lambda r : r.name == payload.emoji.name, guild.roles)
-
-    #        if role is not None:
-    #            print(role.name + " was found!")
-    #            print(role.id)
-    #            member = discord.utils.find(lambda m : m.id == payload.user_id, guild.members)
-    #            await member.add_roles(role)
-    #            print("done")  
 
 
 def setup(client):

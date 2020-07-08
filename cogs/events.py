@@ -30,6 +30,7 @@ class Events(commands.Cog):
         systemChannel = self.client.get_channel(698664722869911677)
         botChannel = self.client.get_channel(698664724426129421)
         rulesChannel = self.client.get_channel(698664722425184273)
+        rolesChannel = self.client.get_channel(725554672504406167)
         #role = discord.utils.get(rulesChannel.guild.roles, name = 'rules')
         #await member.add_roles(role) #commented out until bots are 24/7 hosted
         #await asyncio.sleep(600)
@@ -43,7 +44,7 @@ class Events(commands.Cog):
         #    )
         welcome = discord.Embed(
             title = f'Welcome to MathAcademy, {member.name}!',
-            description = f'🚗🚗Type \\roles in {botChannel.mention} to get a list of math roles, and then use the role\'s number to assign a role. Also, don\'t forget to read {rulesChannel.mention}!\nHow to get help: Go to a Roman Numeral marked help channel, and type `\gethelp <subject>`.',
+            description = f'Head over to {rolesChannel.mention} to get academic roles. Also, don\'t forget to read {rulesChannel.mention}!\nHow to get help: Go to a Roman Numeral marked help channel, and post your exact question.',
             color = discord.Color.blue()
             )
         welcome.set_footer(text = 'We\'re glad you\'re here. Type \\roles for a list of commands', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/209/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png')
